@@ -1,4 +1,5 @@
 
+/*
 resource "azurerm_key_vault_access_policy" "msi_levels" {
   count               = "${length(local.levels)}"
   lifecycle = {
@@ -83,3 +84,4 @@ resource "azurerm_key_vault_access_policy" "service_administrator" {
     "list"
   ]
 }
+*/

@@ -1,4 +1,4 @@
-
+/*
 # Temp service principal until Azure RM support natively user MSI
 resource "azurerm_key_vault_secret" "service_principal_id" {
     depends_on = ["azurerm_key_vault_access_policy.service_administrator"]
@@ -50,3 +50,4 @@ resource "azurerm_key_vault_secret" "level_user_assigned_identity" {
     vault_uri = "${element(azurerm_key_vault.security.*.vault_uri, count.index)}"
 }
 
+*/
