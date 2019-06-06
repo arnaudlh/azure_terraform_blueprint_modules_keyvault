@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "keyvault" {
   location  = "${var.location}"
 }
 
-resource "azurerm_key_vault" "akv" {
+resource "azurerm_key_vault" "security" {
     #count               = "${length(local.levels)}"
     name                = "${random_string.keyvault_name}"
     location            = "${azurerm_resource_group.keyvault.location}"
