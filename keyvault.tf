@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "keyvault" {
 
 resource "azurerm_key_vault" "security" {
     #count               = "${length(local.levels)}"
-    name                = "${random_string.keyvault_name.*.result}"
+    name                = "${random_string.keyvault_name.result}"
     location            = "${azurerm_resource_group.keyvault.location}"
     resource_group_name = "${azurerm_resource_group.keyvault.name}"
     enabled_for_disk_encryption = true
