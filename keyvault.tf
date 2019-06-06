@@ -1,6 +1,5 @@
 
 resource "random_string" "keyvault_name" {
-    #count   = "${length(local.levels)}"
     length  = 22
     upper   = false
     special = false
@@ -12,7 +11,6 @@ resource "azurerm_resource_group" "keyvault" {
 }
 
 resource "azurerm_key_vault" "security" {
-    #count               = "${length(local.levels)}"
     name                = "${random_string.keyvault_name.result}"
     location            = "${azurerm_resource_group.keyvault.location}"
     resource_group_name = "${azurerm_resource_group.keyvault.name}"
