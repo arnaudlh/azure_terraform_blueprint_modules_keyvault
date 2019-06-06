@@ -1,6 +1,6 @@
 
 resource "random_string" "keyvault_name" {
-    count   = "${length(local.levels)}"
+    #count   = "${length(local.levels)}"
     length  = 22
     upper   = false
     special = false
@@ -11,9 +11,9 @@ resource "azurerm_resource_group" "keyvault" {
   location  = "${var.location}"
 }
 
-resource "azurerm_key_vault" "security" {
+resource "azurerm_key_vault" "akv" {
     #count               = "${length(local.levels)}"
-    name                = "${element(local.levels, count.index)}${element(random_string.keyvault_name.*.result, count.index)}"
+    name                = "${random_string.keyvault_name}"
     location            = "${azurerm_resource_group.keyvault.location}"
     resource_group_name = "${azurerm_resource_group.keyvault.name}"
     enabled_for_disk_encryption = true
